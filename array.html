@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Destructuring exercise</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <script>
+        // phẩn 3
+        let products = [
+            {
+                id: 33996665,
+                sku: 2692455386181,
+                categories: 1789,
+                discount: 50,
+                name: "Điện Thoại iPhone 11 128GB  - Hàng Nhập Khẩu",
+                disable: true
+            },
+            {
+                id: 74489817,
+                sku: 5624191820930,
+                categories: 1789,
+                discount: 25,
+                name: "Điện Thoại Samsung Galaxy S3",
+                disable: false
+            },
+            {
+                id: 436278911,
+                sku: 8674431825432,
+                categories: 1800,
+                discount: 10,
+                name: "Máy tính bảng Samsung 2020",
+                disable: true
+            },
+        ];
+
+        /*
+        1. dùng Spread để clone products => newProducts1
+        */
+        /*----Code here-----*/
+
+        const newProducts1 = [...products];
+        console.log(newProducts1);
+        /*------------------------------*/
+        /*
+        2. tạo array newProducts2 chỉ chứa ++ của tất cả sản phẩm trong products (Hint: dùng Map method)
+        */
+        /*----Code here-----*/
+        /* Example: 
+        console.log(newProducts2) 
+        result:
+        [
+          {name: "Điện Thoại iPhone 11 128GB  - Hàng Nhập Khẩu"},
+          {name: "Điện Thoại Samsung Galaxy S3"},
+          {name: "Máy tính bảng Samsung 2020"}
+        ]
+        */
+        const newProducts2 = [];
+        newProducts1.map(function (e) {
+            newProducts2.push(e.name);
+        })
+        console.log(newProducts2);
+
+        /*
+        3. Lọc ra những sản phẩm có discount > 10 (Hint: dùng filter method)
+        */
+        /*----Code here-----*/
+        // products.forEach(function (product) {
+        //     console.log(product.discount);
+        //     const discount10 = product.discount.filter(function(){
+
+        //     })
+        // })
+        const discount10 = products.filter(product => {
+            return product.discount > 10;
+        })
+        console.log(discount10);
+        /*------------------------------*/
+
+
+        /*
+        4. Tìm sản phẩm có id = 74489817 (Hint: dùng find method)
+        */
+        /*----Code here-----*/
+        const id = products.find(function (product) {
+            return product.id == 74489817;
+        })
+        console.log(id);
+        /*------------------------------*/
+
+
+        /*
+        5. Cập nhật disable của tất cả sản phẩm thành false (Hint: dùng find map)
+        */
+        /*----Code here-----*/
+
+        /*------------------------------*/
+        products.map(e => {
+            if (e.disable == true) {
+                e.disable = false;
+            }
+        })
+        console.log(products);
+
+
+//----------------------------------- phần 4
+
+    </script>
+</body>
+
+</html>
